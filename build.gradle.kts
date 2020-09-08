@@ -16,6 +16,7 @@ dependencies {
    testImplementation(kotlin("test-junit5"))
 //    testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
+    compile("com.google.guava","guava","29.0-jre")
 }
 
 tasks.withType<JavaCompile> {

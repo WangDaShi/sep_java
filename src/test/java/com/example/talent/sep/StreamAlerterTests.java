@@ -1,9 +1,11 @@
 package com.example.talent.sep;
 
+import com.google.common.base.Stopwatch;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,14 +34,28 @@ public class StreamAlerterTests {
         StreamAlerter as = new StreamAlerter(new String[]{"abc", "xyz"});
         Random random = new Random();
         int count = 0;
+        Stopwatch watch = Stopwatch.createStarted();
         for (int i = 0; i < 1_000_000_000; i++) { // Integer.MAX_VALUE
             char ch = (char) ('a' + random.nextInt(26));
             if (as.query(ch)) count += 1;
         }
+        System.out.println(watch.elapsed().getSeconds());
         // TODO 按照您的实际情况写运行时间，并在提交时说明这两种情况下耗时情况
         // on my Laptop,
-        // total time is about 25s, Random use 11s, Trie+Ring use 14s
+        // total time is about 15s, Random use 10s, Trie+Ring use 5s
         assertNotEquals(0, count); // count > 0
+    }
+
+    @Test
+    public void test1() throws InterruptedException {
+        Stopwatch watch = Stopwatch.createStarted();
+        TimeUnit.SECONDS.sleep(1);
+        watch.stop();
+        TimeUnit.SECONDS.sleep(1);
+        watch.start();
+        TimeUnit.SECONDS.sleep(1);
+        long seconds = watch.elapsed().getSeconds();
+        System.out.println(seconds);
     }
 }
 
