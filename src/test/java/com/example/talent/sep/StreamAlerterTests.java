@@ -1,11 +1,9 @@
 package com.example.talent.sep;
 
-import com.google.common.base.Stopwatch;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,16 +42,5 @@ public class StreamAlerterTests {
         assertNotEquals(0, count); // count > 0
     }
 
-    @Test
-    public void test1() throws InterruptedException {
-        Stopwatch watch = Stopwatch.createStarted();
-        TimeUnit.SECONDS.sleep(1);
-        watch.stop();
-        TimeUnit.SECONDS.sleep(1);
-        watch.start();
-        TimeUnit.SECONDS.sleep(1);
-        long seconds = watch.elapsed().getSeconds();
-        System.out.println(seconds);
-    }
 }
 

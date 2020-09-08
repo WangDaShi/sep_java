@@ -25,7 +25,7 @@ public class Trie {
     public boolean match(RingBuffer ring){
         Map<Character,Node> currNodes = nodes;
         int i = 0;
-        char c;
+        Character c;
         while(i < ring.length()){
             c = ring.get(i);
             if (currNodes.containsKey(c)){

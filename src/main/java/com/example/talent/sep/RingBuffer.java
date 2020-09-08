@@ -7,7 +7,7 @@ public class RingBuffer {
 
     private final int len;//可保存的最大长度
     private int head;// 指向当前头部位置
-    private char[] arr;
+    private final char[] arr;
 
     public RingBuffer(int len){
         this.len = len;
@@ -26,7 +26,7 @@ public class RingBuffer {
         head = tail;
     }
 
-    public char get(int i){
+    public Character get(int i){
         if(i >= len){
             throw new IllegalArgumentException("超出最大长度");
         }else{
